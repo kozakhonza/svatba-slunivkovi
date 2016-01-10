@@ -147,14 +147,18 @@
         var markerObrad = new google.maps.Marker({
             position: { lat: 50.0682147, lng: 17.0906578},
             map: map,
-            title: 'Hello World!'
+            title: 'Obřad'
         });
 
         var markerHosina = new google.maps.Marker({
             position: { lat: 50.0697986, lng: 17.0925356},
             map: map,
-            title: 'Hello World!'
+            title: 'Hostina'
         });
+
+        var infoWindow = new google.maps.InfoWindow();
+        infoWindow.setContent("test");
+        infoWindow.open(markerObrad);
     }
     google.maps.event.addDomListener(window, 'load', initialize);
 </script>
