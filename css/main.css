@@ -1,0 +1,53 @@
+html, body {
+	height: 100%;
+}
+
+.countdown-container {
+	padding: 24px;
+}
+
+.clock-item .inner {
+	height: 0;
+	padding-bottom: 100%;
+	position: relative;	
+	width: 100%;
+}
+
+.clock-canvas {
+	background-color: rgba(255, 255, 255, .1);
+	border-radius: 50%;
+	height: 0;
+	padding-bottom: 100%;
+}
+
+.text {
+	color: #3d3d3d;
+	font-size: 25px;
+	font-weight: bold;	
+	margin-top: -50px;
+	position: absolute;
+	top: 50%;
+	text-align: center;
+	/*text-shadow: 1px 1px 1px rgb(234, 234, 234);*/
+	width: 100%;
+}
+
+.text .val {
+	font-size: 30px;
+}
+
+.text .type-time {
+	font-size: 25px;
+}
+
+/*@media (min-width: 768px) and (max-width: 991px) {*/
+	/*.clock-item {*/
+		/*margin-bottom: 30px;		*/
+	/*}*/
+/*}*/
+
+/*@media (max-width: 767px) {*/
+	/*.clock-item {*/
+		/*margin: 0px 30px 30px 30px;*/
+	/*}*/
+/*}*/
