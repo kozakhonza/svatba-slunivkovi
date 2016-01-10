@@ -39,15 +39,3 @@ html, body {
 .text .type-time {
 	font-size: 25px;
 }
-
-/*@media (min-width: 768px) and (max-width: 991px) {*/
-	/*.clock-item {*/
-		/*margin-bottom: 30px;		*/
-	/*}*/
-/*}*/
-
-/*@media (max-width: 767px) {*/
-	/*.clock-item {*/
-		/*margin: 0px 30px 30px 30px;*/
-	/*}*/
-/*}*/
