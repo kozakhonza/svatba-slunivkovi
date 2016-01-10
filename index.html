@@ -12,7 +12,14 @@
 
         .main-foto-cover {
             position: relative;
-            font-family: 'Kurale', cursive;    }
+            font-family: 'Kurale', cursive;
+            width: 680px;
+            padding-top: 60px;
+            color: white;
+            padding-left: 16px;
+            text-align: center;
+            line-height: 40px;
+        }
 
         .main-foto {
             position: absolute;
@@ -34,15 +41,13 @@
             height: 43px;
             text-align: center;
             color: white;
+            display: none;
         }
 
         .main-foto-cover span {
-            display: block;
-            margin: 0 auto;
+            display: inline-block;
             font-size: 85px;
-            color: white;
-            padding-left: 82px;
-            padding-top: 40px;
+            width: 680px;
         }
         #map-canvas {
             height: 100%;
@@ -60,7 +65,10 @@
     <div style="height: calc(100vh - 80px); position: relative; min-height: 430px">
         <div class="main-foto"></div>
         <div class="main-foto-cover">
-            <span>Budeme se brát <br>&nbsp;&nbsp;&nbsp;&nbsp;Klára & Honza</span>
+            <span>Těšíme na vás</span>
+            <span style="padding-top: 70px">Klára</span>
+            <span style="padding-top: 19px">&</span>
+            <span>Honza</span>
         </div>
     </div>
     <div class="frame title" style="background-color: #1F266E;">Kdy</div>
@@ -156,9 +164,13 @@
             title: 'Hostina'
         });
 
-        var infoWindow = new google.maps.InfoWindow();
-        infoWindow.setContent("test");
-        infoWindow.open(map, markerObrad);
+        var infoWindowObrad = new google.maps.InfoWindow();
+        infoWindowObrad.setContent("Obřad");
+        infoWindowObrad.open(map, markerObrad);
+
+        var infoWindowHositna = new google.maps.InfoWindow();
+        infoWindowHositna.setContent("Hostina");
+        infoWindowHositna.open(map, markerObrad);
     }
     google.maps.event.addDomListener(window, 'load', initialize);
 </script>
