@@ -3,188 +3,109 @@
 <head>
 <meta charset="utf-8" />
 <title>Sluníčkovi</title>
-    <link href='http://fonts.googleapis.com/css?family=Great+Vibes|Rye|Sancreek|Stint+Ultra+Condensed|MedievalSharp|Wellfleet|Joti+One|Rammetto+One|Passero+One|Kurale|Croissant+One&subset=latin,latin-ext' rel='stylesheet' type='text/css'>    <link rel="stylesheet" type="text/css" href="plugin/count_down/demo/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="plugin/count_down/demo/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Kurale', cursive;;  }
-
-        .main-foto-cover {
-            position: relative;
-            font-family: 'Kurale', cursive;
-            width: 680px;
-            padding-top: 60px;
-            color: white;
-            padding-left: 16px;
-            text-align: center;
-            line-height: 40px;
-        }
-
-        .main-foto {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: -80px;
-            background: url("main-foto2.jpg") no-repeat;
-            background-position: 10% 10%;
-            background-size: cover;
-            z-index: 0;
-        }
-        .frame {
-            width: 100%;
-        }
-
-        .frame.title {
-            font-size: 2.2em;
-            height: 43px;
-            text-align: center;
-            color: white;
-            display: none;
-        }
-
-        .main-foto-cover span {
-            display: inline-block;
-            font-size: 85px;
-            width: 680px;
-        }
-        #map-canvas {
-            height: 100%;
-        }
-        .date-time {
-            text-align: center;
-            font-size: 26px;
-            font-weight: bold;
-        }
-    </style>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBNnGAYE-mBjUFvTK8lsZpXi83Sv-rht4">
-    </script>
+    <link href='https://fonts.googleapis.com/css?family=Poiret+One&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <script src="plugin/jquery/jquery-1.11.3.min.js"></script>
+    <script src="plugin/parallax.js-1.4.2/parallax.min.js"></script>
 </head>
 <body>
-    <div style="height: calc(100vh - 80px); position: relative; min-height: 430px">
-        <div class="main-foto"></div>
-        <div class="main-foto-cover">
-            <span>Těšíme na vás</span>
-            <span style="padding-top: 70px">Klára</span>
-            <span style="padding-top: 19px">&</span>
-            <span>Honza</span>
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">KLÁRA & HONZA</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#date-and-location" onclick="event.preventDefault();scrollToElement('date-and-location')">KDY A KDE</a></li>
+                <li><a href="#harmonogram" onclick="event.preventDefault();scrollToElement('harmonogram')">HARMONOGRAM</a></li>
+                <li><a href="#dress-code" onclick="event.preventDefault();scrollToElement('dress-code')">DRESS CODE</a></li>
+                <li><a href="#gifts" onclick="event.preventDefault();scrollToElement('gifts')">DARY</a></li>
+            </ul>
         </div>
     </div>
-    <div class="frame title" style="background-color: #1F266E;">Kdy</div>
-        <div class="countdown countdown-container container">
-            <div class="clock row">
-                <div class="clock-item clock-days countdown-time-value col-sm-6 col-md-3">
-                    <div class="wrap">
-                        <div class="inner">
-                            <div id="canvas-days" class="clock-canvas"></div>
-                            <div class="text">
-                                <p class="val">0</p>
-                                <p class="type-days type-time">Dní</p>
-                            </div><!-- /.text -->
-                        </div><!-- /.inner -->
-                    </div><!-- /.wrap -->
-                </div><!-- /.clock-item -->
-
-                <div class="clock-item clock-hours countdown-time-value col-sm-6 col-md-3">
-                    <div class="wrap">
-                        <div class="inner">
-                            <div id="canvas-hours" class="clock-canvas"></div>
-
-                            <div class="text">
-                                <p class="val">0</p>
-                                <p class="type-hours type-time">Hodin</p>
-                            </div><!-- /.text -->
-                        </div><!-- /.inner -->
-                    </div><!-- /.wrap -->
-                </div><!-- /.clock-item -->
-
-                <div class="clock-item clock-minutes countdown-time-value col-sm-6 col-md-3">
-                    <div class="wrap">
-                        <div class="inner">
-                            <div id="canvas-minutes" class="clock-canvas"></div>
-
-                            <div class="text">
-                                <p class="val">0</p>
-                                <p class="type-minutes type-time">Minut</p>
-                            </div><!-- /.text -->
-                        </div><!-- /.inner -->
-                    </div><!-- /.wrap -->
-                </div><!-- /.clock-item -->
-
-                <div class="clock-item clock-seconds countdown-time-value col-sm-6 col-md-3">
-                    <div class="wrap">
-                        <div class="inner">
-                            <div id="canvas-seconds" class="clock-canvas"></div>
-
-                            <div class="text">
-                                <p class="val">0</p>
-                                <p class="type-seconds type-time">Vteřin</p>
-                            </div><!-- /.text -->
-                        </div><!-- /.inner -->
-                    </div><!-- /.wrap -->
-                </div><!-- /.clock-item -->
-            </div><!-- /.clock -->
-            <div class="date-time">18.6. 2016 12:00</div>
+</nav>
+    <div class="parallax-container" data-parallax="scroll" data-position="top" data-bleed="10" data-image-src="main-foto2.jpg" data-natural-width="2800" data-natural-height="1867">
+        <h1 class="main-title">
+            SVATBA
+        </h1>
     </div>
-    <div class="frame title" style="background-color: #541F6E">Kde</div>
-    <div class="frame" style="height: 500px">
-        <div id="map-canvas"></div>
-    </div>
-    <div class="frame title" style="background-color: #196e10">Svatební autobus</div>
-    <div class="frame">
-        <img src="kickstarter-campaign-timeline.jpg" style="width: 100%">
-    </div>
-    <div class="frame title" style="background-color: #6e0f10">Program</div>
-    <div class="frame">
-        <img src="harmonogram.jpg" style="width: 100%">
-    </div>
-    <div class="frame title" style="background-color: #0b686e">Dary</div>
-    <div class="frame title" style="background-color: #06006e">Ostatní informace</div>
+    <section id="date-and-location">
+        <div class="container text-center" style="padding: 200px 0">
+            <h2>KDY A KDE</h2>
+            <div style="text-align: center; color: #777">
+                <h3>SOBOTA - 18. ČERVNA 2016</h3>
+                <h3>12:00 - OBŘAD</h3>
+                <h3>Loučná nad Desnou<br>zámecký park </h3>
+                <br>
+                <button class="btn btn-default">MAPA</button>
+            </div>
+        </div>
+    </section>
+    <div class="parallax-container" data-parallax="scroll" data-bleed="10" data-speed="0.2" data-image-src="./img/helix-nebula-1400x1400.jpg" data-natural-width="1400" data-natural-height="1400"></div>
+    <section id="harmonogram">
+        <div class="container text-center" style="padding: 200px 0">
+            <h2>HARMONOGRAM</h2>
+            <div style="text-align: center; color: #777">
+                <ul>
+                    <li>
+                        8:00 - nástup do autobusu u ženicha
+                    </li>
+                    <li>
+                        10:00 - nástup u nevěsty
+                    </li>
+                    <li>
+                        12:00 - obřad
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <div class="parallax-container" data-parallax="scroll" data-bleed="10" data-image-src="./img/spiral-galaxy-1400x900.jpg" data-natural-width="1400" data-natural-height="900"></div>
+    <section id="dress-code">
+        <div class="container text-center">
+            <h2>DRESS CODE</h2>
+            <div style="height: 400px"></div>
+        </div>
+    </section>
+    <div class="parallax-container" data-parallax="scroll" data-bleed="10" data-image-src="./img/reflection-nebula-750x763.jpg" data-natural-width="750" data-natural-height="763"></div>
+    <section id="gifts">
+        <div class="container text-center">
+            <h2>DARY</h2>
+            <div style="height: 400px"></div>
+        </div>
+    </section>
+    <script>
+        $(document).ready(function() {
+            var height =  $( window ).height();
+            var isFirst = true;
+            $('.parallax-container').each(function() {
+                if (isFirst) {
+                    isFirst = false;
+                    $(this).height(height - 85);
+                } else {
+                    $(this).height(height + 10);
+                }
+            });
+
+//            var minHeight = height - 30;
+//            $('section').each(function () {
+//                $(this).css({'min-height': minHeight + 'px'});
+//            });
+        });
+
+        function scrollToElement(elementId) {
+            var offset = -80;
+            $('html, body').animate({
+                scrollTop: $("#" + elementId).offset().top + offset
+            }, 800);
+        }
+    </script>
 </body>
-<script type="text/javascript">
-    function initialize() {
-        var mapOptions = {
-            center: { lat: 50.0694040, lng: 17.0929056},
-            zoom: 15,
-            scrollwheel: false
-        };
-        var map = new google.maps.Map(document.getElementById('map-canvas'),
-                mapOptions);
-
-        var markerObrad = new google.maps.Marker({
-            position: { lat: 50.0682147, lng: 17.0906578},
-            map: map,
-            title: 'Obřad'
-        });
-
-        var markerHosina = new google.maps.Marker({
-            position: { lat: 50.0697986, lng: 17.0925356},
-            map: map,
-            title: 'Hostina'
-        });
-
-        var infoWindowObrad = new google.maps.InfoWindow();
-        infoWindowObrad.setContent("Obřad");
-        infoWindowObrad.open(map, markerObrad);
-
-        var infoWindowHositna = new google.maps.InfoWindow();
-        infoWindowHositna.setContent("Hostina");
-        infoWindowHositna.open(map, markerHosina);
-    }
-    google.maps.event.addDomListener(window, 'load', initialize);
-</script>
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="plugin/count_down/demo/js/kinetic.js"></script>
-<script type="text/javascript" src="plugin/count_down/jquery.final-countdown.js"></script>
-<script type="text/javascript">
-    $('document').ready(function() {
-        'use strict';
-        var time = new Date().getTime() / 1000;
-        $('.countdown').final_countdown({
-            'end': 1466244000,
-            'now': time
-        });
-    });
-</script>
 </html>
